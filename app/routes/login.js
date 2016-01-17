@@ -1,5 +1,7 @@
 module.exports = function (app) {
-    var login = app.controllers.login;
+    var loginController = app.controllers.login;
 
-    app.get('/', login.index);
+    app.get('/', loginController.index);
+    app.post('/login', loginController.login);
+    app.get('/logout', loginController.logout);
 };
