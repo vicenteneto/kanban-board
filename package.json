@@ -1,6 +1,6 @@
 {
-  "name": "scrum-dashboard",
-  "description": "A simple scrum dashboard in node.js",
+  "name": "kanban-board",
+  "description": "A simple Kanban Board in node.js",
   "version": "0.0.1",
   "private": false,
   "scripts": {
