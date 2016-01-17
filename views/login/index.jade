@@ -1,0 +1,42 @@
+extends ../layout
+
+block content
+    .container
+        .col-md-offset-4.col-md-4.thumbnail
+            form#loginForm.well(action='/login', method='post')
+                fieldset
+                    legend Login
+                    .form-group
+                        label(for='loginField') Login
+                        input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=10, required)
+                    .form-group
+                        label(for='passwordField') Password
+                        input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
+                    .form-group
+                        button.btn.btn-primary.pull-right(type='submit')
+                            span.glyphicon.glyphicon-ok-circle.
+                            |  Login
+    #signUpModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='signUpLabel')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    button.close(data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                        span.sr-only Close
+                    h4#signUpLabel.modal-title Join us
+                form#signInForm.form-horizontal(action='/user', method='post')
+                    .modal-body
+                        .form-group
+                            label(for='nameField') Name
+                            input#nameField.form-control(type='text', name='user[name]', minlength=3, maxlength=100, required)
+                        .form-group
+                            label(for='emailField') Email
+                            input#emailField.form-control(type='email', name='user[email]', minlength=3, maxlength=50, required)
+                        .form-group
+                            label(for='loginField') Login
+                            input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=10, required)
+                        .form-group
+                            label(for='passwordField') Password
+                            input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
+                    .modal-footer
+                        button.btn.btn-primary(type='submit') Create an account

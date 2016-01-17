@@ -1,5 +1,5 @@
 var express = require('express');
-var load = require('express-load');
+var consign = require('consign');
 var path = require('path');
 
 var app = express();
@@ -10,7 +10,9 @@ app.set('view engine', 'jade');
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-load('routes')
+consign({cwd: 'app'})
+    .include('controllers')
+    .include('routes')
     .into(app);
 
 // catch 404 and forward to error handler

@@ -9,8 +9,8 @@
     "test": "./node_modules/.bin/mocha test/*.js"
   },
   "dependencies": {
+    "consign": "^0.1.2",
     "express": "~4.13.3",
-    "express-load": "^1.1.15",
     "jade": "~1.11.0"
   },
   "devDependencies": {
