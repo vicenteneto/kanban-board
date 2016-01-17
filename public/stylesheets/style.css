@@ -5,16 +5,20 @@ html {
 
 body {
     background: rgb(238, 238, 238);
-    padding-top: 70px;
+    padding-top: 50px;
     margin-bottom: 40px;
 }
 
 body > .container {
-    padding: 60px 15px 0;
+    padding: 40px 15px 0;
 }
 
 .container .text-muted {
     margin: 20px 0;
+}
+
+.modal-dialog > .modal-content > form {
+    padding: 15px;
 }
 
 .footer > .container {

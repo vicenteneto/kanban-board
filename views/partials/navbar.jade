@@ -10,22 +10,22 @@ nav.navbar.navbar-default.navbar-fixed-top
 
         .collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
-                li
-                    a(href='#') Link
-                li.dropdown
-                    a.dropdown-toggle(href='#', data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-                        | Dropdown
-                        span.caret
-                    ul.dropdown-menu
-                        li
-                            a(href='#') Action
-                        li
-                            a(href='#') Another action
-                        li
-                            a(href='#') Something else here
-                        li.divider(role='separator')
-                        li.dropdown-header Nav header
-                        li
-                            a(href='#') Separated link
-                        li
-                            a(href='#') One more separated link
+                if user
+                    li.dropdown
+                        a.dropdown-toggle(href='#', data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
+                            span.glyphicon.glyphicon-user
+                            |  vnetort
+                            span.caret
+                        ul.dropdown-menu
+                            li
+                                a(href='#') My account
+                            li
+                                a(href='#') Logout
+                            li.divider(role='separator')
+                            li
+                                a(href='#') About
+                else
+                    li
+                        a.btn(href='#signUp', data-toggle='modal', data-target='#signUpModal')
+                            span.glyphicon.glyphicon-user
+                            |  Sign up
