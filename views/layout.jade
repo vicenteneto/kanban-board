@@ -1,7 +1,17 @@
 doctype html
 html
     head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='copyright', content='Copyright (c) 2016')
+        title Kanban Dashboard
+
+        link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+        link(href='/stylesheets/style.css', rel='stylesheet')
+
+        script(src='http://code.jquery.com/jquery-2.2.0.min.js')
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
     body
+        include partials/navbar
         block content
+        include partials/footer

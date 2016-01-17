@@ -1,8 +1,31 @@
-body {
-    padding: 50px;
-    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+html {
+    position: relative;
+    min-height: 100%;
 }
 
-a {
-    color: #00B7FF;
+body {
+    background: rgb(238, 238, 238);
+    padding-top: 70px;
+    margin-bottom: 40px;
+}
+
+body > .container {
+    padding: 60px 15px 0;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+}
+
+.footer > .container {
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background-color: #f5f5f5;
 }

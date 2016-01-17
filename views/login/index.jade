@@ -1,5 +1,18 @@
 extends ../layout
 
 block content
-    h1= title
-    p Welcome to #{title}
+    .container
+        .col-md-offset-4.col-md-4.thumbnail
+            form.well(action='/login', method='post')
+                fieldset
+                    legend Login
+                    .form-group
+                        label(for='login') Login
+                        input#login.form-control(type='text', name='user[login]', maxlength='10')
+                    .form-group
+                        label(for='password') Password
+                        input#password.form-control(type='password', name='user[password]', maxlength='10')
+                    .form-group
+                        button.btn.btn-primary.pull-right(type='submit')
+                            span.glyphicon.glyphicon-ok-circle.
+                            |  Login
