@@ -1,0 +1,21 @@
+{
+  "name": "scrum-dashboard",
+  "description": "A simple scrum dashboard in node.js",
+  "version": "0.0.1",
+  "private": false,
+  "scripts": {
+    "start": "node ./bin/www",
+    "debug": "node-debug ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "debug": "~2.2.0",
+    "express": "~4.13.3",
+    "jade": "~1.11.0",
+    "morgan": "~1.6.1"
+  },
+  "devDependencies": {
+    "node-inspector": "^0.12.5"
+  }
+}
