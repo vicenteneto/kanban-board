@@ -6,8 +6,6 @@ var consign = require('consign');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 
-var error = require('./app/middleware/error');
-
 var app = express();
 
 // view engine setup
@@ -31,12 +29,13 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(error.notFound);
-app.use(error.serverError);
-
 consign({cwd: 'app'})
     .include('controllers')
+    .include('middleware')
     .include('routes')
     .into(app);
+
+app.use(app.middleware.error.notFound);
+app.use(app.middleware.error.serverError);
 
 module.exports = app;
