@@ -1,23 +1,26 @@
 module.exports = function (app) {
+    var User = app.models.user;
+
     return {
         index: function (req, res) {
             res.render('login/index');
         },
         login: function (req, res) {
-            var login = req.body.user.login;
-            var password = req.body.user.password;
+            var user = req.body.user;
+            var query = {login: user.login, password: user.password};
 
-            if (login && password) {
-                var user = req.body.user;
-
-                req.session.user = user;
-
-                res.redirect('/home');
-            } else {
-                res.redirect('/');
-            }
+            User.findOne(query)
+                .select('login password')
+                .exec(function (error, user) {
+                    if (user) {
+                        req.session.user = user;
+                        res.redirect('/home');
+                    } else {
+                        res.redirect('/');
+                    }
+                });
         },
-        logout: function(req, res) {
+        logout: function (req, res) {
             req.session.destroy();
             res.redirect('/');
         }

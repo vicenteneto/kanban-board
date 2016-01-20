@@ -30,9 +30,10 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 consign({cwd: 'app'})
-    .include('controllers')
     .include('middleware')
-    .include('routes')
+    .then('models')
+    .then('controllers')
+    .then('routes')
     .into(app);
 
 app.use(app.middleware.error.notFound);
