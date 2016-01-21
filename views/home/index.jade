@@ -2,39 +2,43 @@ extends ../layout
 
 block content
     .container
-        .row
-            .col-md-7.thumbnail
-                .well
-                    legend
-                        span.glyphicon.glyphicon-th-list
-                        |  My projects
-            .col-md-offset-1.col-md-4.thumbnail
-                .well
-                    legend
-                        span.glyphicon.glyphicon-user
-                        |  My Account
-                    .row
-                        .col-md-offset-2.col-md-8.col-md-offset-2
-                            a.thumbnail(href='#')
-                                img#profilePicture.img-rounded.thumbnail(src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', alt='no-photo')
-                    .row
-                        .btn-block
-                            a.btn.btn-primary.btn-lg.btn-block(href='#myAccount', data-toggle='modal', data-target='#myAccount') My Account
-                        .btn-block
-                            a.btn.btn-danger.btn-lg.btn-block(href='#deleteAccount', data-toggle='modal', data-target='#deleteAccount')
-                                span.glyphicon.glyphicon-trash
-                                |  Delete Account
-        .row
-            .col-md-7
+        .col-md-7
+            .row
+                .thumbnail
+                    .well
+                        legend
+                            span.glyphicon.glyphicon-th-list
+                            |  My projects
+            .row
                 if hasError
-                    .alert.alert-danger(role='alert')
+                    .alert.alert-danger.alert-dismissible(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
                         span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
                         span.sr-only Error:
                         strong  Oh Snap!
                         |  #{message}
                 else if !hasError && message
-                    .alert.alert-success(role='alert')
+                    .alert.alert-success.alert-dismissible(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
                         span.glyphicon.glyphicon-ok-sign(aria-hidden='true')
                         span.sr-only Success:
                         strong  Well done!
                         |  #{message}
+        .col-md-offset-1.col-md-4.thumbnail
+            .well
+                legend
+                    span.glyphicon.glyphicon-user
+                    |  My Account
+                .row
+                    .col-md-offset-2.col-md-8.col-md-offset-2
+                        a.thumbnail(href='#')
+                            img#profilePicture.img-rounded.thumbnail(src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', alt='no-photo')
+                .row
+                    .btn-block
+                        a.btn.btn-primary.btn-lg.btn-block(href='#myAccount', data-toggle='modal', data-target='#myAccount') My Account
+                    .btn-block
+                        a.btn.btn-danger.btn-lg.btn-block(href='#deleteAccount', data-toggle='modal', data-target='#deleteAccount')
+                            span.glyphicon.glyphicon-trash
+                            |  Delete Account

@@ -13,7 +13,8 @@ module.exports = function (app) {
             index: {unique: true}
         },
         login: {type: String, minlength: 3, maxlength: 10, lowercase: true, required: true, index: {unique: true}},
-        password: {type: String, minlength: 3, maxlength: 10, required: true}
+        password: {type: String, minlength: 3, maxlength: 10, required: true},
+        projects: [{type: Schema.Types.ObjectId, ref: 'projects'}]
     });
 
     return app.middleware.db_manager.model('users', user);

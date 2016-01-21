@@ -19,13 +19,17 @@ block content
         .row
             .col-md-offset-4.col-md-4
                 if hasError
-                    .alert.alert-danger(role='alert')
+                    .alert.alert-danger.alert-dismissible(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
                         span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
                         span.sr-only Error:
                         strong  Oh Snap!
                         |  #{message}
                 else if !hasError && message
-                    .alert.alert-success(role='alert')
+                    .alert.alert-success.alert-dismissible(role='alert')
+                        button.close(type='button', data-dismiss='alert', aria-label='Close')
+                            span(aria-hidden='true') &times;
                         span.glyphicon.glyphicon-ok-sign(aria-hidden='true')
                         span.sr-only Success:
                         strong  Well done!
