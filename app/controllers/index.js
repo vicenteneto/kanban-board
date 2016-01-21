@@ -7,7 +7,7 @@ module.exports = function (app) {
             req.session.hasError = null;
             req.session.message = null;
 
-            res.render('home/index', {user: req.session.user, hasError: hasError, message: message});
+            res.render('login/index', {hasError: hasError, message: message});
         }
     };
 };

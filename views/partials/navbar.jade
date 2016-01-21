@@ -14,16 +14,16 @@ nav.navbar.navbar-default.navbar-fixed-top
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
                             span.glyphicon.glyphicon-user
-                            |  vnetort
+                            |  #{user.login}
                             span.caret
                         ul.dropdown-menu
                             li
-                                a(href='#') My account
+                                a(href='#myAccount', data-toggle='modal', data-target='#myAccount') My Account
                             li
                                 a(href='/logout') Logout
                             li.divider(role='separator')
                             li
-                                a(href='#') About
+                                a(href='#about') About
                 else
                     li
                         a.btn(href='#signUp', data-toggle='modal', data-target='#signUpModal')
