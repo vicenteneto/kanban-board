@@ -15,6 +15,9 @@ module.exports = function (app) {
 
                 res.redirect('/home');
             });
+        },
+        list: function (req, res) {
+
         }
     };
 };

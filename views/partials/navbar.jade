@@ -13,7 +13,8 @@ nav.navbar.navbar-default.navbar-fixed-top
                 if user
                     li.dropdown
                         a.dropdown-toggle(href='#', data-toggle='dropdown' role='button' aria-haspopup='true' aria-expanded='false')
-                            span.glyphicon.glyphicon-user  #{user.login}
+                            span.glyphicon.glyphicon-user
+                            |  #{user.login}
                             span.caret
                         ul.dropdown-menu
                             li
@@ -26,4 +27,5 @@ nav.navbar.navbar-default.navbar-fixed-top
                 else
                     li
                         a.btn(href='#signUp', data-toggle='modal', data-target='#signUpModal')
-                            span.glyphicon.glyphicon-user  Sign up
+                            span.glyphicon.glyphicon-user
+                            |  Sign up

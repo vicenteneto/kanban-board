@@ -13,7 +13,7 @@ module.exports = function (app) {
                         res.redirect('/home');
                     } else {
                         req.session.hasError = true;
-                        req.session.message = 'Wrong login or password!';
+                        req.session.message = 'Login and password do not match!';
 
                         res.redirect('/');
                     }

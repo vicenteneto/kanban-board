@@ -17,6 +17,23 @@ body > .container {
     margin: 20px 0;
 }
 
+label.error {
+    /* .alert */
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ebccd1;
+    border-radius: 4px;
+
+    /* .alert-danger */
+    background-color: #f2dede;
+    color: #a94442;
+
+    display:block;
+    width:100%;
+    font-weight: normal;
+    margin-top: 3px;
+}
+
 .modal-dialog > .modal-content > form {
     padding: 15px;
 }
