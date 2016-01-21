@@ -2,20 +2,34 @@ extends ../layout
 
 block content
     .container
-        .col-md-offset-4.col-md-4.thumbnail
-            form#loginForm.well(action='/login', method='post')
-                fieldset
-                    legend Login
-                    .form-group
-                        label(for='loginField') Login
-                        input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=10, required)
-                    .form-group
-                        label(for='passwordField') Password
-                        input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
-                    .form-group
-                        button.btn.btn-primary.pull-right(type='submit')
-                            span.glyphicon.glyphicon-ok-circle.
-                            |  Login
+        .row
+            .col-md-offset-4.col-md-4.thumbnail
+                form#loginForm.well(action='/login', method='post')
+                    fieldset
+                        legend Login
+                        .form-group
+                            label(for='loginField') Login
+                            input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=10, required)
+                        .form-group
+                            label(for='passwordField') Password
+                            input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
+                        .form-group
+                            button.btn.btn-primary.pull-right(type='submit')
+                                span.glyphicon.glyphicon-ok-circle  Login
+        .row
+            .col-md-offset-4.col-md-4
+                if hasError
+                    .alert.alert-danger(role='alert')
+                        span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                        span.sr-only Error:
+                        strong Oh Snap!
+                        |  #{message}
+                else if !hasError && message
+                    .alert.alert-success(role='alert')
+                        span.glyphicon.glyphicon-ok-sign(aria-hidden='true')
+                        span.sr-only Success:
+                        strong Well done!
+                        |  #{message}
     #signUpModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='signUpLabel')
         .modal-dialog(role='document')
             .modal-content
