@@ -9,6 +9,8 @@ block content
                         legend
                             span.glyphicon.glyphicon-th-list
                             |  My projects
+                        .row
+                            a.btn.btn-success.btn-lg.pull-right(href='#createProjectModal', data-toggle='modal', data-target='#createProjectModal') Create project
             .row
                 if hasError
                     .alert.alert-danger.alert-dismissible(role='alert')
@@ -42,3 +44,18 @@ block content
                         a.btn.btn-danger.btn-lg.btn-block(href='#deleteAccount', data-toggle='modal', data-target='#deleteAccount')
                             span.glyphicon.glyphicon-trash
                             |  Delete Account
+    #createProjectModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createProjectLabel')
+        .modal-dialog(role='document')
+            .modal-content
+                .modal-header
+                    button.close(data-dismiss='modal', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                        span.sr-only Close
+                    h4#createProjectLabel.modal-title Create Project
+                form#signInForm.form-horizontal(action='/project', method='post')
+                    .modal-body
+                        .form-group
+                            label(for='nameField') Name
+                            input#nameField.form-control(type='text', name='project[name]', minlength=3, maxlength=20, required)
+                    .modal-footer
+                        button.btn.btn-primary.btn-lg(type='submit') Create project
