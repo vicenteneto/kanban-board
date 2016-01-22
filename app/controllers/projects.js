@@ -1,6 +1,6 @@
 module.exports = function (app) {
-    var Project = app.models.project;
     var User = app.models.user;
+    var Project = app.models.project;
 
     return {
         create: function (req, res) {
@@ -15,14 +15,14 @@ module.exports = function (app) {
                 } else {
                     User.findById(req.session.user._id, function (err, user) {
                         user.projects.push(project._id);
-                        user.save();
+                        user.save(function () {
+                            message = 'Project created successfully!';
 
-                        message = 'Project created successfully!';
+                            req.session.hasError = err;
+                            req.session.message = message;
 
-                        req.session.hasError = err;
-                        req.session.message = message;
-
-                        res.redirect('/home');
+                            res.redirect('/home');
+                        });
                     });
                 }
             });
