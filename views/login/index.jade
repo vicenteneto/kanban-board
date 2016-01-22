@@ -34,27 +34,4 @@ block content
                         span.sr-only Success:
                         strong  Well done!
                         |  #{message}
-    #signUpModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='signUpLabel')
-        .modal-dialog(role='document')
-            .modal-content
-                .modal-header
-                    button.close(data-dismiss='modal', aria-label='Close')
-                        span(aria-hidden='true') &times;
-                        span.sr-only Close
-                    h4#signUpLabel.modal-title Join us
-                form#signInForm.form-horizontal(action='/user', method='post')
-                    .modal-body
-                        .form-group
-                            label(for='nameField') Name
-                            input#nameField.form-control(type='text', name='user[name]', minlength=3, maxlength=100, required)
-                        .form-group
-                            label(for='emailField') Email
-                            input#emailField.form-control(type='email', name='user[email]', minlength=3, maxlength=50, required)
-                        .form-group
-                            label(for='loginField') Login
-                            input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=10, required)
-                        .form-group
-                            label(for='passwordField') Password
-                            input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
-                    .modal-footer
-                        button.btn.btn-primary(type='submit') Create an account
+    include ../partials/modals/sign-up

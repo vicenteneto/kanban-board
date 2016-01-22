@@ -9,7 +9,7 @@ describe('Index Route', function () {
         var req = request.get('/');
 
         req.end(function (err, res) {
-            res.status.should.eql(200);
+            res.status.should.eql(302);
             done();
         });
     });

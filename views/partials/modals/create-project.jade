@@ -1,0 +1,15 @@
+#createProjectModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createProjectLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                h4#createProjectLabel.modal-title Create Project
+            form#signInForm.form-horizontal(action='/project', method='post')
+                .modal-body
+                    .form-group
+                        label(for='nameField') Name
+                        input#nameField.form-control(type='text', name='project[name]', minlength=3, maxlength=20, required)
+                .modal-footer
+                    button.btn.btn-primary.btn-lg(type='submit') Create project
