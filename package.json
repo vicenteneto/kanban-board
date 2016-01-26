@@ -15,10 +15,13 @@
     "express": "~4.13.3",
     "express-session": "^1.13.0",
     "jade": "~1.11.0",
+    "method-override": "^2.3.5",
     "mongoose": "^4.3.6"
   },
   "devDependencies": {
     "debug": "~2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-nodemon": "^2.0.6",
     "mocha": "^2.3.4",
     "node-inspector": "^0.12.5",
     "should": "^8.1.1",

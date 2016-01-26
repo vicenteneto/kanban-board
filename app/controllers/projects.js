@@ -26,6 +26,37 @@ module.exports = function (app) {
                     });
                 }
             });
+        },
+        update: function (req, res) {
+            var _id = req.params.id;
+
+            Project.findById(_id, function (error, project) {
+                project.name = req.body.project.name;
+
+                project.save(function () {
+                    res.redirect('/home');
+                });
+            });
+        },
+        delete: function (req, res) {
+            User.findById(req.session.user._id, function (error, user) {
+                var _id = req.params.id;
+
+                var index = user.projects.indexOf(_id);
+                if (index !== -1) {
+                    user.projects.splice(index, 1);
+                }
+
+                user.save(function () {
+                    Project.findById(_id, function (error, project) {
+                        project.name = req.body.project.name;
+
+                        project.save(function () {
+                            res.redirect('/home');
+                        });
+                    });
+                });
+            });
         }
     };
 };

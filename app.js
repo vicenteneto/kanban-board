@@ -1,9 +1,10 @@
 var path = require('path');
 
-var express = require('express');
 var bodyParser = require('body-parser');
 var consign = require('consign');
 var cookieParser = require('cookie-parser');
+var express = require('express');
+var methodOverride = require('method-override');
 var session = require('express-session');
 
 var app = express();
@@ -26,6 +27,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(methodOverride(function (req, res) {
+    console.log('method-override');
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        var method = req.body._method;
+        delete req.body._method;
+        return method
+    }
+}));
 
 app.use(express.static(path.join(__dirname, 'public')));
 

@@ -6,7 +6,7 @@
                     span(aria-hidden='true') &times;
                     span.sr-only Close
                 h4#signUpLabel.modal-title Join us
-            form#signInForm.form-horizontal(action='/user', method='post')
+            form#signUpForm.form-horizontal(action='/user', method='post')
                 .modal-body
                     .form-group
                         label(for='nameField') Name
@@ -22,3 +22,10 @@
                         input#passwordField.form-control(type='password', name='user[password]', minlength=3, maxlength=10, required)
                 .modal-footer
                     button.btn.btn-primary.btn-lg(type='submit') Create an account
+
+script(type='text/javascript').
+    $('#signUpForm').validate();
+
+    $('#signUpModal').on('shown.bs.modal', function () {
+        $('#nameField').focus();
+    });
