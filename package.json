@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "private": false,
   "scripts": {
-    "start": "gulp",
+    "start": "node ./bin/www",
     "debug": "node-debug ./bin/www",
     "test": "./node_modules/.bin/mocha test/*.js"
   },

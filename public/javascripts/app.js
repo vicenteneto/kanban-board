@@ -4,7 +4,4 @@ $(function () {
     }, 5000);
 
     $('input:text:visible:first').focus();
-
-    $('#loginForm').validate();
-    $('#signInForm').validate();
 });
