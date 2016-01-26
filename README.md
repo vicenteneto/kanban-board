@@ -1,6 +1,7 @@
 # kanban-board
 
 [![Build Status](https://img.shields.io/travis/vicenteneto/kanban-board/master.svg)](https://travis-ci.org/vicenteneto/kanban-board)
+[![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org)
 
 This project is a simple Kanban Board in [Node.js](https://nodejs.org/).
 
