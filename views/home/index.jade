@@ -20,9 +20,7 @@ block content
                                         span.sr-only Toggle Dropdown
                                     ul.dropdown-menu.btn-block
                                         li
-                                            a.btn-lg(href='#') Edit project
-                                        li
-                                            a.btn-lg(href='#') Delete project
+                                            a.btn-lg(href='#editProjectModal', data-toggle='modal', data-target='#editProjectModal', data-id='#{project.id}', data-name='#{project.name}') Edit project
             .row
                 if hasError
                     .alert.alert-danger.alert-dismissible(role='alert')
@@ -57,3 +55,4 @@ block content
                             span.glyphicon.glyphicon-trash
                             |  Delete Account
     include ../partials/modals/create-project
+    include ../partials/modals/edit-project
