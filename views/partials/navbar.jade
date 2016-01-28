@@ -18,14 +18,17 @@ nav.navbar.navbar-default.navbar-fixed-top
                             span.caret
                         ul.dropdown-menu
                             li
-                                a(href='#myAccount', data-toggle='modal', data-target='#myAccount') My Account
+                                a(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal') My Account
                             li
                                 a(href='/logout') Logout
                             li.divider(role='separator')
                             li
-                                a(href='#about') About
+                                a(href='#aboutModal', data-toggle='modal', data-target='#aboutModal') About
                 else
                     li
                         a.btn(href='#signUp', data-toggle='modal', data-target='#signUpModal')
                             span.glyphicon.glyphicon-user
                             |  Sign up
+
+include ../partials/modals/my-account
+include ../partials/modals/about

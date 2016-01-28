@@ -1,0 +1,15 @@
+#uploadProfilePictureModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='uploadProfilePictureLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                h4#uploadProfilePictureLabel.modal-title Upload Profile Picture
+            form.form-horizontal(action='/account/profile_picture', method='post', enctype='multipart/form-data')
+                .modal-body
+                    .form-group
+                        input.form-control(type='file', name='picture', required)
+                        p.help-block Select your profile picture
+                .modal-footer
+                    button.btn.btn-primary.btn-lg(type='submit') Upload
