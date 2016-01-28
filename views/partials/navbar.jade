@@ -18,7 +18,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                             span.caret
                         ul.dropdown-menu
                             li
-                                a(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal') My Account
+                                a(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal', data-name='#{user.name}', data-email='#{user.email}', data-login='#{user.login}') My Account
                             li
                                 a(href='/logout') Logout
                             li.divider(role='separator')

@@ -7,7 +7,6 @@
                     span.sr-only Close
                 h4#myAccountLabel.modal-title My Account
             form#myAccountForm.form-horizontal(action='/account', method='post')
-                input(type='hidden', name='_method', value='put')
                 .modal-body
                     .form-group
                         label(for='nameField') Name
@@ -24,6 +23,14 @@
 script(type='text/javascript').
     $('#myAccountForm').validate();
 
-    $('#myAccountModal').on('shown.bs.modal', function () {
+    $('#myAccountModal').on('shown.bs.modal', function (event) {
         $('#nameField').focus();
+
+        var userName = $(event.relatedTarget).data('name');
+        var userEmail = $(event.relatedTarget).data('email');
+        var userLogin = $(event.relatedTarget).data('login');
+
+        $(this).find('#nameField').val(userName);
+        $(this).find('#emailField').val(userEmail);
+        $(this).find('#loginField').val(userLogin);
     });

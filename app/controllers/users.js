@@ -15,6 +15,22 @@ module.exports = function (app) {
 
                 res.redirect('/');
             });
+        },
+        update: function (req, res) {
+            var _id = req.session.user._id;
+
+            User.findById(_id, function (error, user) {
+                user.name = req.body.user.name;
+                user.email = req.body.user.email;
+                user.login = req.body.user.login;
+
+                user.save(function () {
+                    req.session.user = user;
+
+                    req.session.message = "User updated successfully!";
+                    res.redirect('/home');
+                });
+            });
         }
     };
 };
