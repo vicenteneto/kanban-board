@@ -1,0 +1,14 @@
+#aboutModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='aboutLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                h4#aboutLabel.modal-title Kanban Board
+            .modal-body
+                p.text-muted A simple Kanban Board in node.js
+                p.text-muted Developed by Vicente Neto [github.com/vicenteneto]
+                p.text-muted &copy; Kanban Dashboard - 2016
+            .modal-footer
+                button.btn.btn-default(type='button', data-dismiss='modal') Close

@@ -45,14 +45,15 @@ block content
                     |  My Account
                 .row
                     .col-md-offset-2.col-md-8.col-md-offset-2
-                        a.thumbnail(href='#')
-                            img#profilePicture.img-rounded.thumbnail(src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', alt='no-photo')
+                        a.thumbnail(href='#uploadProfilePictureModal', data-toggle='modal', data-target='#uploadProfilePictureModal')
+                            img#profilePicture.img-rounded.img-thumbnail(src='http://s3.amazonaws.com/37assets/svn/765-default-avatar.png', alt='no-photo')
                 .row
                     .btn-block
-                        a.btn.btn-primary.btn-lg.btn-block(href='#myAccount', data-toggle='modal', data-target='#myAccount') My Account
+                        a.btn.btn-primary.btn-lg.btn-block(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal', data-name='#{user.name}', data-email='#{user.email}', data-login='#{user.login}') My Account
                     .btn-block
                         a.btn.btn-danger.btn-lg.btn-block(href='#deleteAccount', data-toggle='modal', data-target='#deleteAccount')
                             span.glyphicon.glyphicon-trash
                             |  Delete Account
     include ../partials/modals/create-project
     include ../partials/modals/edit-project
+    include ../partials/modals/upload-profile-picture
