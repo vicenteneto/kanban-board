@@ -1,6 +1,6 @@
 module.exports = function (app) {
-    var authenticator = app.middleware.authenticator;
+    var sessionManager = app.middleware.session_manager;
     var homeController = app.controllers.home;
 
-    app.get('/home', authenticator.authenticate, homeController.index);
+    app.get('/home', sessionManager.requireLogin, homeController.index);
 };

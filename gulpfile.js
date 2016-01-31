@@ -3,7 +3,7 @@ var nodemon = require('gulp-nodemon');
 
 var options = {
     script: 'bin/www',
-    ext: 'js',
+    ext: 'js html',
     env: {'NODE_ENV': 'development'},
     watch: ['bin/*', 'app/*', 'app.js']
 };

@@ -1,11 +1,10 @@
-module.exports = function (app) {
+module.exports = function () {
     var error = {
-        // catch 404 and forward to error handler
-        notFound: function (req, res, next) {
+        notFound: function (req, res) {
             res.status(404);
             res.render('not-found');
         },
-        serverError: function (error, req, res, next) {
+        serverError: function (error, req, res) {
             res.status(500);
             res.render('server-error', {error: error});
         }

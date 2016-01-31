@@ -13,20 +13,19 @@ module.exports = function (app) {
         },
         login: function (req, res) {
             var user = req.body.user;
-            var query = {login: user.login, password: user.password};
+            var query = User.where({login: user.login, password: user.password});
 
-            User.findOne(query)
-                .exec(function (err, user) {
-                    if (user) {
-                        req.session.user = user;
-                        res.redirect('/home');
-                    } else {
-                        req.session.hasError = true;
-                        req.session.message = 'Login and password do not match!';
+            query.findOne(function (err, user) {
+                if (user) {
+                    req.session.user = user;
+                    res.redirect('/home');
+                } else {
+                    req.session.hasError = true;
+                    req.session.message = 'Login and password do not match!';
 
-                        res.redirect('/');
-                    }
-                });
+                    res.redirect('/');
+                }
+            });
         },
         logout: function (req, res) {
             req.session.destroy();
