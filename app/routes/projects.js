@@ -1,8 +1,8 @@
 module.exports = function (app) {
-    var authenticator = app.middleware.authenticator;
+    var sessionManager = app.middleware.session_manager;
     var projectsController = app.controllers.projects;
 
-    app.post('/project', authenticator.authenticate, projectsController.create);
-    app.put('/project/:id', authenticator.authenticate, projectsController.update);
-    app.delete('/project/:id', authenticator.authenticate, projectsController.delete);
+    app.post('/project', sessionManager.requireLogin, projectsController.create);
+    app.put('/project/:id', sessionManager.requireLogin, projectsController.update);
+    app.delete('/project/:id', sessionManager.requireLogin, projectsController.delete);
 };

@@ -17,8 +17,8 @@ Node.js' package ecosystem, [npm](https://www.npmjs.com/), is the largest ecosys
 
 ## Contributing
 
-Please file a GitHub issue to [report a bug](https://github.com/vicenteneto/kanban-board/issues).
+Have a bug or a feature request? [Please, open a GitHub issue](https://github.com/vicenteneto/kanban-board/issues/new).
 
 ## License
 
-kanban-board is licensed under the [MIT License](http://opensource.org/licenses/MIT).
+Copyright 2016-, Vicente Neto. This project is licensed under the [MIT License](http://opensource.org/licenses/MIT).

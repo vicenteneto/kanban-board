@@ -16,7 +16,10 @@ app.set('view engine', 'jade');
 app.use(cookieParser());
 
 app.use(session({
+        cookieName: 'session',
         secret: 'kanban-board',
+        httpOnly: true,
+        ephemeral: true,
         resave: false,
         saveUninitialized: false
     }
@@ -29,7 +32,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(methodOverride(function (req, res) {
-    console.log('method-override');
     if (req.body && typeof req.body === 'object' && '_method' in req.body) {
         var method = req.body._method;
         delete req.body._method;
@@ -38,6 +40,25 @@ app.use(methodOverride(function (req, res) {
 }));
 
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.use(function (req, res, next) {
+    if (req.session && req.session.user) {
+        var User = require('mongoose').model('users');
+        User.findOne({login: req.session.user.login}, function (err, user) {
+            if (user) {
+                req.user = user;
+
+                delete req.user.password;
+                req.session.user = user;
+                res.locals.user = user;
+            }
+
+            next();
+        });
+    } else {
+        next();
+    }
+});
 
 consign({cwd: 'app'})
     .include('middleware')

@@ -1,4 +1,4 @@
-module.exports = function (app) {
+module.exports = function () {
     return {
         index: function (req, res) {
             if (req.session.user) {

@@ -7,7 +7,7 @@ module.exports = function (app) {
                 var message = 'User created successfully!';
 
                 if (err) {
-                    message = 'Error creating user!';
+                    messagusere = 'Error creating user!';
                 }
 
                 req.session.hasError = err;
