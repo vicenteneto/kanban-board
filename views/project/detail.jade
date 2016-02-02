@@ -5,12 +5,41 @@ block content
         .row
             .thumbnail
                 .well
-                    ul.nav.nav-tabs
-                        li.active
-                            a(href='#tab1', data-toggle='tab')
-                                i.icon-tasks
+                    ul.nav.nav-tabs(role='tablist')
+                        li.active(role='presentation')
+                            a(href='#tabDashboard', aria-controls='tabDashboard', role='tab', data-toggle='tab')
+                                span.glyphicon.glyphicon-tasks(aria-hidden='true')
                                 |  DashBoard
-                        li
-                            a(href='#tab2', data-toggle='tab')
-                                i.icon-user
-                                |  Colaboradores
+                        li(role='presentation')
+                            a(href='#tabCollaborators', aria-controls='tabCollaborators', role='tab', data-toggle='tab')
+                                span.glyphicon.glyphicon-user(aria-hidden='true')
+                                |  Collaborators
+                    .tab-content
+                        #tabDashboard.tab-pane.fade.in.active(role='tabpanel')
+                            legend #{project.name}
+                        #tabCollaborators.tab-pane.fade(role='tabpanel')
+                            legend #{project.name}
+                            .row-fluid
+                                .col-md-offset-2.col-md-8
+                                    .well
+                                        table.table
+                                            thead
+                                                tr
+                                                    th Name
+                                                    th Email
+                                                    th Login
+                                            tbody
+                                                each member in members
+                                                    tr
+                                                        td #{member.name}
+                                                        td #{member.email}
+                                                        td #{member.login}
+                                        hr
+                                        div(align='center')
+                                            a(href='#adicionarParticipante', role='button', data-toggle='modal')
+                                                span.glyphicon.glyphicon-user(aria-hidden='true')
+                                                |  Add collaborator
+                    div
+                        a.btn(href='/users/#{user._id}/projects')
+                            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                                |  Back

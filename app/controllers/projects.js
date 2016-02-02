@@ -68,7 +68,8 @@ module.exports = function (app) {
             });
         },
         show: function (req, res) {
-            res.render('project/detail');
+            var project = req.session.project;
+            res.render('project/detail', {project: project, members: []});
         }
     };
 };
