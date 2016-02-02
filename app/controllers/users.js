@@ -1,5 +1,6 @@
 module.exports = function (app) {
     var User = app.models.user;
+    var Project = app.models.project;
 
     return {
         create: function (req, res) {
@@ -7,7 +8,7 @@ module.exports = function (app) {
                 var message = 'User created successfully!';
 
                 if (err) {
-                    messagusere = 'Error creating user!';
+                    message = 'Error creating user!';
                 }
 
                 req.session.hasError = err;
@@ -30,6 +31,24 @@ module.exports = function (app) {
                     req.session.message = "User updated successfully!";
                     res.redirect('/home');
                 });
+            });
+        },
+        delete: function (req, res) {
+            var _id = req.session.user._id;
+
+            User.findById(_id, function (err, user) {
+
+                for (var i = 0; i < user.projects.length; i++) {
+                    User.find({projects: user.projects[i]}, function (err, users) {
+                        if (!err && users.length == 1) {
+                            Project.findByIdAndRemove(user.projects[i]);
+                        }
+                    });
+                }
+
+                req.session.message = "Your account has been successfully deleted!";
+
+                res.redirect('/logout');
             });
         }
     };

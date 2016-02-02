@@ -51,9 +51,10 @@ block content
                     .btn-block
                         a.btn.btn-primary.btn-lg.btn-block(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal', data-name='#{user.name}', data-email='#{user.email}', data-login='#{user.login}') My Account
                     .btn-block
-                        a.btn.btn-danger.btn-lg.btn-block(href='#deleteAccount', data-toggle='modal', data-target='#deleteAccount')
+                        a.btn.btn-danger.btn-lg.btn-block(href='#deleteMyAccountModal', data-toggle='modal', data-target='#deleteMyAccountModal')
                             span.glyphicon.glyphicon-trash
                             |  Delete Account
     include ../partials/modals/create-project
     include ../partials/modals/edit-project
     include ../partials/modals/upload-profile-picture
+    include ../partials/modals/delete-my-account

@@ -1,0 +1,15 @@
+#deleteMyAccountModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='deleteMyAccountLabel')
+    .modal-dialog(role='document')
+        .modal-content
+            .modal-header
+                button.close(data-dismiss='modal', aria-label='Close')
+                    span(aria-hidden='true') &times;
+                    span.sr-only Close
+                h4#deleteMyAccountLabel.modal-title Delete My Account
+            .modal-body
+                p Are you sure you want to delete your account?
+            .modal-footer
+                form#deleteMyAccount.form-horizontal(action='/account', method='post')
+                    input(type='hidden', name='_method', value='delete')
+                    button#cancel.btn.btn-default(type='button', data-dismiss='modal') Cancel
+                    button#confirm.btn.btn-danger(type='submit') Delete

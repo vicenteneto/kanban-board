@@ -28,7 +28,7 @@ module.exports = function (app) {
             });
         },
         logout: function (req, res) {
-            req.session.destroy();
+            delete req.session.user;
             res.redirect('/');
         }
     };
