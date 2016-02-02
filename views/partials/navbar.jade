@@ -6,7 +6,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                 span.icon-bar
                 span.icon-bar
                 span.icon-bar
-            a.navbar-brand(href='#') Kanban Board
+            a.navbar-brand(href='/') Kanban Board
 
         .collapse.navbar-collapse
             ul.nav.navbar-nav.navbar-right
@@ -20,7 +20,7 @@ nav.navbar.navbar-default.navbar-fixed-top
                             li
                                 a(href='#myAccountModal', data-toggle='modal', data-target='#myAccountModal', data-name='#{user.name}', data-email='#{user.email}', data-login='#{user.login}') My Account
                             li
-                                a(href='/logout') Logout
+                                a(href='/api/logout') Logout
                             li.divider(role='separator')
                             li
                                 a(href='#aboutModal', data-toggle='modal', data-target='#aboutModal') About

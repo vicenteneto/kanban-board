@@ -27,10 +27,19 @@ module.exports = function (app) {
                 }
             });
         },
+        read: function (req, res) {
+            var _id = req.params.id;
+
+            Project.findById(_id, function (err, project) {
+                req.session.project = project;
+
+                res.redirect('/project/detail');
+            });
+        },
         update: function (req, res) {
             var _id = req.params.id;
 
-            Project.findById(_id, function (error, project) {
+            Project.findById(_id, function (err, project) {
                 project.name = req.body.project.name;
 
                 project.save(function () {
@@ -39,7 +48,7 @@ module.exports = function (app) {
             });
         },
         delete: function (req, res) {
-            User.findById(req.session.user._id, function (error, user) {
+            User.findById(req.session.user._id, function (err, user) {
                 var _id = req.params.id;
 
                 var index = user.projects.indexOf(_id);
@@ -48,7 +57,7 @@ module.exports = function (app) {
                 }
 
                 user.save(function () {
-                    Project.findById(_id, function (error, project) {
+                    Project.findById(_id, function (err, project) {
                         project.name = req.body.project.name;
 
                         project.save(function () {
@@ -57,6 +66,9 @@ module.exports = function (app) {
                     });
                 });
             });
+        },
+        show: function (req, res) {
+            res.render('project/detail');
         }
     };
 };

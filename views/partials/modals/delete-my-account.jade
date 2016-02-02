@@ -9,7 +9,7 @@
             .modal-body
                 p Are you sure you want to delete your account?
             .modal-footer
-                form#deleteMyAccount.form-horizontal(action='/account', method='post')
+                form#deleteMyAccount.form-horizontal(action='/api/account', method='post')
                     input(type='hidden', name='_method', value='delete')
                     button#cancel.btn.btn-default(type='button', data-dismiss='modal') Cancel
                     button#confirm.btn.btn-danger(type='submit') Delete

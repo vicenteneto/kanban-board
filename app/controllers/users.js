@@ -20,7 +20,7 @@ module.exports = function (app) {
         update: function (req, res) {
             var _id = req.session.user._id;
 
-            User.findById(_id, function (error, user) {
+            User.findById(_id, function (err, user) {
                 user.name = req.body.user.name;
                 user.email = req.body.user.email;
                 user.login = req.body.user.login;
@@ -46,9 +46,10 @@ module.exports = function (app) {
                     });
                 }
 
-                req.session.message = "Your account has been successfully deleted!";
-
-                res.redirect('/logout');
+                User.findByIdAndRemove(_id, function (err, user) {
+                    req.session.message = "Your account has been successfully deleted!";
+                    res.redirect('/api/logout');
+                });
             });
         }
     };

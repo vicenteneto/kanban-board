@@ -1,14 +1,12 @@
 module.exports = function () {
-    var error = {
+    return {
         notFound: function (req, res) {
             res.status(404);
             res.render('not-found');
         },
-        serverError: function (error, req, res) {
+        serverError: function (err, req, res) {
             res.status(500);
-            res.render('server-error', {error: error});
+            res.render('server-error', {error: err});
         }
     };
-
-    return error;
 };
