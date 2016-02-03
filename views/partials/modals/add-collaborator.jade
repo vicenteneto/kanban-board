@@ -1,20 +1,20 @@
-#createProjectModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='createProjectLabel')
+#addCollaboratorModal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='addCollaboratorLabel')
     .modal-dialog(role='document')
         .modal-content
             .modal-header
                 button.close(data-dismiss='modal', aria-label='Close')
                     span(aria-hidden='true') &times;
                     span.sr-only Close
-                h4#createProjectLabel.modal-title Create Project
-            form#signInForm.form-horizontal(action='/api/project', method='post')
+                h4#addCollaboratorLabel.modal-title Add collaborator
+            form#addCollaboratorForm.form-horizontal(action='/api/project/user', method='post')
                 .modal-body
                     .form-group
-                        label(for='nameField') Name
-                        input#nameField.form-control(type='text', name='project[name]', minlength=3, maxlength=20, required)
+                        label(for='loginField') Login
+                        input#loginField.form-control(type='text', name='user[login]', minlength=3, maxlength=20, required)
                 .modal-footer
-                    button.btn.btn-primary.btn-lg(type='submit') Create project
+                    button.btn.btn-primary.btn-lg(type='submit') Add collaborator
 
 script(type='text/javascript').
-    $('#createProjectModal').on('shown.bs.modal', function () {
-        $('#nameField').focus()
+    $('#addCollaboratorModal').on('shown.bs.modal', function () {
+        $('#loginField').focus()
     });
