@@ -6,6 +6,7 @@ module.exports = function (app) {
     app.get('/api/project/:id', sessionManager.requireLogin, projectsController.read);
     app.put('/api/project/:id', sessionManager.requireLogin, projectsController.update);
     app.delete('/api/project/:id', sessionManager.requireLogin, projectsController.delete);
+    app.post('/api/project/user', sessionManager.requireLogin, projectsController.addCollaborator);
 
     app.get('/project/detail', sessionManager.requireLogin, projectsController.show);
 };

@@ -67,9 +67,30 @@ module.exports = function (app) {
                 });
             });
         },
+        addCollaborator: function (req, res) {
+            User.findOne({login: req.body.user.login}, function (err, user) {
+                var message;
+
+                console.log(user);
+                if (user === null) {
+                    req.session.hasError = true;
+                    message = 'Error adding collaborator!';
+                } else {
+                    message = 'Collaborator added successfully!';
+                }
+
+                req.session.message = message;
+
+                res.redirect('/project/detail');
+            });
+        },
         show: function (req, res) {
             var project = req.session.project;
-            res.render('project/detail', {project: project, members: []});
+            var members = req.session.members;
+            var hasError = req.session.hasError;
+            var message = req.session.message;
+
+            res.render('project/detail', {project: project, members: [], hasError: hasError, message: message});
         }
     };
 };
