@@ -23,5 +23,5 @@ script(type='text/javascript').
         var projectName = $(event.relatedTarget).data('name');
 
         $(this).find('#nameField').val(projectName);
-        $('#editProjectForm').attr('action', '/project/' + projectId);
+        $('#editProjectForm').attr('action', '/api/project/' + projectId);
     });

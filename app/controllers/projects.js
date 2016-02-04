@@ -27,10 +27,19 @@ module.exports = function (app) {
                 }
             });
         },
+        read: function (req, res) {
+            var _id = req.params.id;
+
+            Project.findById(_id, function (err, project) {
+                req.session.project = project;
+
+                res.redirect('/project/detail');
+            });
+        },
         update: function (req, res) {
             var _id = req.params.id;
 
-            Project.findById(_id, function (error, project) {
+            Project.findById(_id, function (err, project) {
                 project.name = req.body.project.name;
 
                 project.save(function () {
@@ -39,7 +48,7 @@ module.exports = function (app) {
             });
         },
         delete: function (req, res) {
-            User.findById(req.session.user._id, function (error, user) {
+            User.findById(req.session.user._id, function (err, user) {
                 var _id = req.params.id;
 
                 var index = user.projects.indexOf(_id);
@@ -48,7 +57,7 @@ module.exports = function (app) {
                 }
 
                 user.save(function () {
-                    Project.findById(_id, function (error, project) {
+                    Project.findById(_id, function (err, project) {
                         project.name = req.body.project.name;
 
                         project.save(function () {
@@ -57,6 +66,31 @@ module.exports = function (app) {
                     });
                 });
             });
+        },
+        addCollaborator: function (req, res) {
+            User.findOne({login: req.body.user.login}, function (err, user) {
+                var message;
+
+                console.log(user);
+                if (user === null) {
+                    req.session.hasError = true;
+                    message = 'Error adding collaborator!';
+                } else {
+                    message = 'Collaborator added successfully!';
+                }
+
+                req.session.message = message;
+
+                res.redirect('/project/detail');
+            });
+        },
+        show: function (req, res) {
+            var project = req.session.project;
+            var members = req.session.members;
+            var hasError = req.session.hasError;
+            var message = req.session.message;
+
+            res.render('project/detail', {project: project, members: [], hasError: hasError, message: message});
         }
     };
 };

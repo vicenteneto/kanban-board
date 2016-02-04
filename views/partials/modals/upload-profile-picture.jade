@@ -6,7 +6,7 @@
                     span(aria-hidden='true') &times;
                     span.sr-only Close
                 h4#uploadProfilePictureLabel.modal-title Upload Profile Picture
-            form.form-horizontal(action='/account/profile_picture', method='post', enctype='multipart/form-data')
+            form.form-horizontal(action='/api/account/profile_picture', method='post', enctype='multipart/form-data')
                 .modal-body
                     .form-group
                         input.form-control(type='file', name='picture', required)

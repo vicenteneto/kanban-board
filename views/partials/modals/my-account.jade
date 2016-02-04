@@ -6,7 +6,8 @@
                     span(aria-hidden='true') &times;
                     span.sr-only Close
                 h4#myAccountLabel.modal-title My Account
-            form#myAccountForm.form-horizontal(action='/account', method='post')
+            form#myAccountForm.form-horizontal(action='/api/account', method='post')
+                input(type='hidden', name='_method', value='put')
                 .modal-body
                     .form-group
                         label(for='nameField') Name

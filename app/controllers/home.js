@@ -10,6 +10,9 @@ module.exports = function (app) {
             req.session.hasError = null;
             req.session.message = null;
 
+            delete req.session.project;
+            delete req.session.members;
+
             User.findById(req.session.user._id, function (err, user) {
                 Project.find({_id: {"$in": user.projects}}, function (err, userProjects) {
                     var user = req.session.user;

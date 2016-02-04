@@ -1,0 +1,65 @@
+extends ../layout
+
+block content
+    .container
+        .row
+            .thumbnail
+                .well(data-example-id='togglable-tabs')
+                    legend #{project.name}
+                    .row
+                        ul.nav.nav-tabs(role='tablist')
+                            li.active(role='presentation')
+                                a#dashboard-tab(href='#dashboard', role='tab', data-toggle='tab', aria-controls='dashboard', aria-expanded='true')
+                                    span.glyphicon.glyphicon-tasks(aria-hidden='true')
+                                    |  Dashboard
+                            li(role='presentation')
+                                a#collaborators-tab(href='#collaborators', role='tab', data-toggle='tab', aria-controls='collaborators')
+                                    span.glyphicon.glyphicon-user(aria-hidden='true')
+                                    |  Collaborators
+                        .tab-content
+                            #dashboard.tab-pane.fade.in.active(role='tabpanel', aria-labelledby='dashboard-tab')
+                                .row.
+                                    ...
+                            #collaborators.tab-pane.fade(role='tabpanel', aria-labelledby='collaborators-tab')
+                                .row
+                                    .col-md-offset-2.col-md-8
+                                        table.table
+                                            thead
+                                                tr
+                                                    th Name
+                                                    th Email
+                                                    th Login
+                                            tbody
+                                                each member in members
+                                                    tr
+                                                        td #{member.name}
+                                                        td #{member.email}
+                                                        td #{member.login}
+                                        hr
+                                        div(align='center')
+                                            a(href='#addCollaboratorModal', data-toggle='modal', data-target='#addCollaboratorModal')
+                                                span.glyphicon.glyphicon-user
+                                                |  Add collaborator
+                    .row
+                        a.btn(href='/home')
+                            span.glyphicon.glyphicon-chevron-left(aria-hidden='true')
+                                |  Back
+        .row
+            if hasError
+                .alert.alert-danger.alert-dismissible(role='alert')
+                    button.close(type='button', data-dismiss='alert', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    span.glyphicon.glyphicon-exclamation-sign(aria-hidden='true')
+                    span.sr-only Error:
+                    strong  Oh Snap!
+                    |  #{message}
+            else if !hasError && message
+                .alert.alert-success.alert-dismissible(role='alert')
+                    button.close(type='button', data-dismiss='alert', aria-label='Close')
+                        span(aria-hidden='true') &times;
+                    span.glyphicon.glyphicon-ok-sign(aria-hidden='true')
+                    span.sr-only Success:
+                    strong  Well done!
+                    |  #{message}
+
+    include ../partials/modals/add-collaborator
