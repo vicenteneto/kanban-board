@@ -13,12 +13,19 @@ Node.js' package ecosystem, [npm](https://www.npmjs.com/), is the largest ecosys
 ## Table of contents
 
 * [Contributing](#contributing)
-* [License](#license)
+* [Creator](#creator)
+* [Copyright and license](#copyright-and-license)
 
 ## Contributing
 
 Have a bug or a feature request? [Please, open a GitHub issue](https://github.com/vicenteneto/kanban-board/issues/new).
 
-## License
+## Creator
 
-Copyright 2016-, Vicente Neto. This project is licensed under the [MIT License](http://opensource.org/licenses/MIT).
+**Vicente Neto**
+
+* <https://github.com/vicenteneto>
+
+## Copyright and license
+
+Copyright 2016-, Vicente Neto. This project is licensed under the [MIT License](https://github.com/vicenteneto/kanban-board/blob/master/LICENSE).
